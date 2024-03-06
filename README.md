@@ -43,6 +43,23 @@ Html Report will look like below
 2. Passed tests
 ![image](https://github.com/deepar23/Interview/assets/101648011/2942a0ef-fb22-4bf1-bb50-0e96bba20d08)
 
+**Test Cases Automated**
+UI Test
+1. User Registration and Login
+2. Browsing a product, Adding to cart and check out
+API Test
+1. Create resource
+2. Delete resource
+3. Update resource
+4. Login API
+Database
+1. Select query (Used mysql)
+
+**Assertion Library**
+Used chai and mocha assertions
+
+
+
 
 
 
