@@ -58,6 +58,7 @@ Database
 **Assertion Library**
 Used chai and mocha assertions
 
+**Test execution in headed mode in Chrome**
 
 ![Bookstore-Passed-cut](https://github.com/deepar23/Interview/assets/101648011/35866bb4-8461-4795-ab35-cc476b9c12c9)
 
