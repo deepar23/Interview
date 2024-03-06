@@ -1,0 +1,52 @@
+{
+  "name": "interview",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "delete:reportFolder": "del /q cypress\\mochawesome-report",
+    "delete:reportFolder:linux": "rm -rf cypress/mochawesome-report",
+    "feature": "npx cypress run --spec 'cypress/e2e/UI/*' --reporter mochawesome-report",
+    "apitests": "npx cypress run --spec 'cypress/e2e/API/apiTesting.cy.js' --reporter mochawesome-report",
+    "merge:reports": "mochawesome-merge cypress/mochawesome-report/*.json > combined-report.json",
+    "create:html:report": "merge:reports && marge --reportDir TestReport combined-report.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepar23/Interview.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deepar23/Interview/issues"
+  },
+  "homepage": "https://github.com/deepar23/Interview#readme",
+  "devDependencies": {
+    "cypress": "^11.2.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "mocha": "^10.3.0",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "step_definitions": "cypress/e2e/integration/"
+  },
+  "dependencies": {
+    "-": "^0.0.1",
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "mochawesome-report-generator": "^6.2.0",
+    "mysql": "^2.18.1",
+    "save-dev": "^0.0.1-security"
+  },
+  "reporter": "mochawesome",
+  "reporterOptions": {
+    "reportDir": "cypress/mochawesome-report",
+    "reportFilename": "CustomeMocaReport",
+    "quiet": true,
+    "overwrite": false,
+    "html": false,
+    "json": true
+  }
+}

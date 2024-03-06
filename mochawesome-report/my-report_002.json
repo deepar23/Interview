@@ -1,0 +1,261 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-03-06T13:39:18.024Z",
+    "end": "2024-03-06T13:39:20.609Z",
+    "duration": 2585,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4af2e8b5-90f3-4712-b1c3-c089ec16f274",
+      "title": "",
+      "fullFile": "cypress/e2e/API/apiTesting.cy.js",
+      "file": "cypress/e2e/API/apiTesting.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "eca03bc2-665a-4e10-b092-6d3a701cd55d",
+          "title": "Create a user",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Creates a resource",
+              "fullTitle": "Create a user Creates a resource",
+              "timedOut": null,
+              "duration": 1090,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture(\"testData/createResource.json\").then(function (createResourceData) {\n  cy.request('POST', Cypress.env('API_Url') + 'posts', {\n    createResourceData: createResourceData\n  }).then(function (response) {\n    cy.log(response);\n    expect(response.status).to.eq(201);\n    Cypress.env('resourceId', response.body.id);\n  });\n});",
+              "err": {},
+              "uuid": "35d1936b-99e2-4efe-a304-d55f2c96cb9e",
+              "parentUUID": "eca03bc2-665a-4e10-b092-6d3a701cd55d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "35d1936b-99e2-4efe-a304-d55f2c96cb9e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1090,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "6df9bea7-0d7d-4c2e-9f87-ca045f729836",
+          "title": "Product Retrieval and Details",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Retrives the list of products",
+              "fullTitle": "Product Retrieval and Details Retrives the list of products",
+              "timedOut": null,
+              "duration": 204,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('GET', Cypress.env('API_Url') + 'posts').then(function (response) {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.length.of.at.least(1);\n});",
+              "err": {},
+              "uuid": "b6a8f82e-8b08-4516-9f67-c9c60f02b2bb",
+              "parentUUID": "6df9bea7-0d7d-4c2e-9f87-ca045f729836",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Retrieves details for a specific product",
+              "fullTitle": "Product Retrieval and Details Retrieves details for a specific product",
+              "timedOut": null,
+              "duration": 190,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('GET', Cypress.env('API_Url') + 'posts/3').then(function (response) {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.include.keys('userId', 'id', 'title', 'body');\n});",
+              "err": {},
+              "uuid": "891cd40d-4516-4266-a972-5345f338981d",
+              "parentUUID": "6df9bea7-0d7d-4c2e-9f87-ca045f729836",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b6a8f82e-8b08-4516-9f67-c9c60f02b2bb",
+            "891cd40d-4516-4266-a972-5345f338981d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 394,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "06f704b1-0f3d-4e72-96a8-2af6372a90a2",
+          "title": "Cart Manipulation",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Add an item to the cart",
+              "fullTitle": "Cart Manipulation Add an item to the cart",
+              "timedOut": null,
+              "duration": 296,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('POST', 'https://jsonplaceholder.typicode.com/todos', {\n  userId: Cypress.env('userId'),\n  title: 'Added an item to cart',\n  completed: false\n}).then(function (response) {\n  expect(response.status).to.eq(201);\n  expect(response.body).to.have.property('title', 'Added an item to cart');\n  Cypress.env('itemId', response.body.id);\n});",
+              "err": {},
+              "uuid": "c8342e61-805a-42da-b992-9b03f6afca87",
+              "parentUUID": "06f704b1-0f3d-4e72-96a8-2af6372a90a2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Remove an item from the cart",
+              "fullTitle": "Cart Manipulation Remove an item from the cart",
+              "timedOut": null,
+              "duration": 282,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "console.log(\"\".concat(Cypress.env('itemId')));\ncy.request('DELETE', \"https://jsonplaceholder.typicode.com/todos/\".concat(Cypress.env('itemId'))).then(function (response) {\n  expect(response.status).to.eq(200);\n});",
+              "err": {},
+              "uuid": "a544b3b8-52eb-4ea2-8ba5-4674f2f6ef65",
+              "parentUUID": "06f704b1-0f3d-4e72-96a8-2af6372a90a2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c8342e61-805a-42da-b992-9b03f6afca87",
+            "a544b3b8-52eb-4ea2-8ba5-4674f2f6ef65"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 578,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "7e90584b-9742-44d4-bb7b-0219e3df6eed",
+          "title": "Order Replacement",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Replace an order",
+              "fullTitle": "Order Replacement Replace an order",
+              "timedOut": null,
+              "duration": 498,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var postId = 2;\ncy.request('PUT', 'https://jsonplaceholder.typicode.com/posts/' + postId, {\n  userId: Cypress.env('userId'),\n  orderId: Cypress.env('orderId'),\n  title: \"Updated order\"\n}).then(function (response) {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property('title', 'Updated order');\n});",
+              "err": {},
+              "uuid": "adcd3b28-124d-429c-8da0-8fec5e6e9425",
+              "parentUUID": "7e90584b-9742-44d4-bb7b-0219e3df6eed",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "adcd3b28-124d-429c-8da0-8fec5e6e9425"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 498,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "my-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "json": true,
+        "reportsDir": "mochawesome-report",
+        "reportFilename": "my-report",
+        "overwrite": false
+      },
+      "version": "6.2.0"
+    }
+  }
+}
