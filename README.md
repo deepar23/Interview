@@ -59,6 +59,7 @@ Database
 Used chai and mocha assertions
 
 
+![Bookstore-Passed-cut](https://github.com/deepar23/Interview/assets/101648011/35866bb4-8461-4795-ab35-cc476b9c12c9)
 
 
 
